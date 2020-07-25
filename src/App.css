@@ -1,0 +1,10 @@
+.main-controls {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.main-controls button {
+    height: 100px;
+    margin: 5px;
+    width: 100%;
+}
