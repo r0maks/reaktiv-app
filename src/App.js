@@ -4,7 +4,9 @@ import Planning from './components/planning-container'
 
 function App() {
   return (
-    <Planning />
+    <div className="app-container">
+      <Planning />
+    </div>
   );
 }
 

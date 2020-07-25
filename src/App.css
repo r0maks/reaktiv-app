@@ -5,6 +5,20 @@
 }
 .main-controls button {
     height: 100px;
-    margin: 5px;
     width: 100%;
+}
+.main-controls button:hover {
+    background: #2196f3;
+    color: white;
+}
+.create-controls form {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-row-gap: 10px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 10px;
 }

@@ -9,6 +9,7 @@ const planning = (state = initialState, action) => {
         ...state,
         mode: 'create',
       }
+    case 'GO_BACK_HOME':
     default:
       return initialState;
   }

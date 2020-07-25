@@ -1,19 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { showNewRoom } from '../actions'
+import Controls from './controls'
+import Create from './create'
 
-const Planning = ({ dispatch }) => {
+const Planning = ({ mode }) => {
 
     return (
-        <div className="app-container">
-            <div className="main-container">
-                <div className="main-controls">
-                    <button onClick={() => dispatch(showNewRoom())}>Create a Room</button>
-                    <button>Join a Room</button>
-                </div>
-            </div>
+        <div className="main-container">
+            {getComponentForMode(mode)}
         </div>
     )
 }
 
-export default connect()(Planning)
+const mapStateToProps = ({ planning }) => {
+    return {
+        mode: planning.mode
+    }
+}
+
+const getComponentForMode = (mode) => {
+    switch (mode) {
+        case 'create':
+            return <Create />;
+        case 'home':
+        default:
+            return <Controls />;
+    }
+}
+
+export default connect(mapStateToProps)(Planning)

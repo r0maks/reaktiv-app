@@ -15,18 +15,19 @@ body {
 
 .main-container {
   padding: 10px;
-  background: #eeeeeeff;
+  background: #b0bec5;
   border-radius: 2px;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
 }
 
 body {
-  background: #aaaaaaff;
+  background: #263238;
   display: flex;
   justify-content: center;
   align-content: center;
   flex-direction: column;
   height: 75vh;
+  font-size:16px;
 }
 
 button {
@@ -37,6 +38,38 @@ button {
 	cursor: pointer;
   outline: inherit;
   border-radius: 2px;
+}
+
+button:disabled,
+button[disabled], button[disabled]:hover {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.btn {
+  background: #607d8b;
+  border: 2px solid #78909c;
+  padding: 5px;
+  color: white;
+}
+
+.btn:hover {
+  background: #2196f3;
+  color: white;
+  border: 2px solid #2196f3;
+}
+
+input {
+  background: #eceff1;
+  border: none;
+  padding: 5px;
+  border-radius: 2px;
+  border: 2px solid #78909c;
+}
+input:focus {
+  outline:none;
 }
 
 /* colors */

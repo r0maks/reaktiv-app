@@ -3,5 +3,14 @@
         "activityBar.background": "#5E0431",
         "titleBar.activeBackground": "#830544",
         "titleBar.activeForeground": "#FFFBFD"
+    },
+    "terminal.integrated.env.osx": {
+        "SFDX_SET_CLIENT_IDS": "sfdx-vscode"
+    },
+    "terminal.integrated.env.linux": {
+        "SFDX_SET_CLIENT_IDS": "sfdx-vscode"
+    },
+    "terminal.integrated.env.windows": {
+        "SFDX_SET_CLIENT_IDS": "sfdx-vscode"
     }
 }
