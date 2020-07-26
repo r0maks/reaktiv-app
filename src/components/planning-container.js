@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Controls from './controls'
 import Create from './create'
+import Pointing from './pointing'
 
 const Planning = ({ mode }) => {
-
     return (
         <div className="main-container">
             {getComponentForMode(mode)}
@@ -20,6 +20,8 @@ const mapStateToProps = ({ planning }) => {
 
 const getComponentForMode = (mode) => {
     switch (mode) {
+        case 'pointing':
+            return <Pointing/>;
         case 'create':
             return <Create />;
         case 'home':

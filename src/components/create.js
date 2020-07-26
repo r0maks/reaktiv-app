@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { goBackHome } from '../actions'
+import { goBackHome, createNewRoom } from '../actions'
 
 
 const Create = ({ dispatch, state }) => {
@@ -21,7 +21,7 @@ const Create = ({ dispatch, state }) => {
             </form>
             <div className="grid-2">
                 <button className="btn" onClick={() => dispatch(goBackHome())}>Cancel</button>
-                <button disabled={!(name && code) ? true : false} className="btn">Create</button>
+                <button disabled={!(name && code) ? true : false} onClick={() => dispatch(createNewRoom(name, code))} className="btn">Create</button>
             </div>
         </div>
     )

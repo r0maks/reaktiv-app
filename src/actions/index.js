@@ -4,4 +4,12 @@ export const showNewRoom = () => ({
 export const goBackHome = () => ({
   type: 'GO_BACK_HOME',
 })
+export const createNewRoom = (name, code) => ({
+  type: 'CREATE_NEW_ROOM',
+  name,
+  code
+})
+export const joinRoom = () => ({
+  type: 'JOIN_ROOM',
+})
 

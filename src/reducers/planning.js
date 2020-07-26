@@ -1,5 +1,6 @@
 const initialState = {
-  mode: 'home'
+  mode: 'home',
+  rooms: []
 };
 
 const planning = (state = initialState, action) => {
@@ -8,6 +9,18 @@ const planning = (state = initialState, action) => {
       return {
         ...state,
         mode: 'create',
+      }
+    case 'CREATE_NEW_ROOM':
+      return {
+        ...state,
+        mode: 'home',
+        rooms:
+          [
+            ...state.rooms,
+            {
+              name: action.name
+            }
+          ]
       }
     case 'GO_BACK_HOME':
     default:
