@@ -23,6 +23,10 @@ const planning = (state = initialState, action) => {
           ]
       }
     case 'GO_BACK_HOME':
+      return {
+        ...state,
+        mode: 'home',
+      }
     default:
       return initialState;
   }
