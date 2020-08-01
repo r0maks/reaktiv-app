@@ -8,14 +8,16 @@ const initialState = {
 
 const pointing = (state = initialState, action) => {
   switch (action.type) {
-    case 'CREATE_NEW_ROOM':
+    case 'JOIN_ROOM':
       return {
         ...state,
-        roomId: 1,
-        roomName: action.name,
+        roomId: action.roomId,
+        roomName: action.roomName
       }
     default:
-      return initialState;
+      return {
+        ... state
+      };
   }
 }
 

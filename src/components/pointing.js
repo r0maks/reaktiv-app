@@ -10,7 +10,7 @@ const Pointing = ({ dispatch, state, roomName }) => {
     )
 }
 
-const mapStateToProps = ({ planning, pointing }) => {
+const mapStateToProps = ({ pointing }) => {
     return {
         mode: pointing.pointingMode,
         roomName: pointing.roomName

@@ -1,32 +1,26 @@
+const modes = {
+  HOME: 'home',
+  CREATE: 'create',
+  POINTING: 'pointing',
+}
+
 const initialState = {
-  mode: 'home',
+  mode: modes.HOME,
   rooms: [],
   searchTerms: '',
-};
+}
 
 const planning = (state = initialState, action) => {
   switch (action.type) {
     case 'SHOW_NEW_ROOM_CREATE':
       return {
         ...state,
-        mode: 'create',
-      }
-    case 'CREATE_NEW_ROOM':
-      return {
-        ...state,
-        mode: 'home',
-        rooms:
-          [
-            ...state.rooms,
-            {
-              name: action.name
-            }
-          ]
+        mode: modes.CREATE,
       }
     case 'GO_BACK_HOME':
       return {
         ...state,
-        mode: 'home',
+        mode: modes.HOME,
         searchTerms: '',
       }
     case 'SEARCH_ROOMS':
@@ -38,6 +32,11 @@ const planning = (state = initialState, action) => {
       return {
         ...state,
         rooms: action.payload,
+      }
+    case 'JOIN_ROOM':
+      return {
+        ...state,
+        mode: modes.POINTING
       }
     default:
       return initialState;

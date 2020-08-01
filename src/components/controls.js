@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { showNewRoom, searchRooms } from '../actions'
+import { showNewRoom, searchRooms, joinRoom } from '../actions'
 
 const Controls = ({ dispatch, state, rooms, searchTerms }) => {
 
@@ -31,7 +31,7 @@ const renderRoomsList = (rooms, searchTerms, dispatch) => {
                                 <strong>{room.name}</strong><br />
                                 <span>{new Date(room.created).toDateString()} {new Date(room.created).toLocaleTimeString()}</span>
                             </p>
-                            <button className="btn">Join</button>
+                            <button onClick={() => dispatch(joinRoom(room.id, room.name))} className="btn">Join</button>
                         </div>
                     ))}
                 </div>

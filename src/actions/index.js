@@ -37,7 +37,9 @@ export const fetchRooms = () => async dispatch => {
     });
   });
 }
-export const joinRoom = () => ({
+export const joinRoom = (roomId, roomName) => ({
   type: 'JOIN_ROOM',
+  roomId,
+  roomName
 })
 
