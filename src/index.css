@@ -64,6 +64,10 @@ button[disabled], button[disabled]:hover {
   color: white;
 }
 
+p {
+  margin: 0px;
+}
+
 input {
   background: #eceff1;
   border: none;

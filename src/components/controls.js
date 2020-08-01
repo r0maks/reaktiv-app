@@ -24,8 +24,10 @@ const renderRoomsList = (rooms) => {
         return (
             <div className="room-list">
                 {rooms.map(room => (
-                    <div className="room" key={room.name}>
-                        <p>{room.name}</p>
+                    <div className="room" key={room.id}>
+                        <p><strong>{room.name}</strong><br/>
+                        <span>{new Date(room.created).toDateString()} {new Date(room.created).toLocaleTimeString()}</span>
+                        </p> 
                         <button className="btn">Join</button>
                     </div>
                 ))}

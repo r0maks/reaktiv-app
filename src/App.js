@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Planning from './components/planning-container'
 
-function App() {
+const App = () => {
+
+  useEffect(() => {
+
+  });
+
   return (
     <div className="app-container">
       <Planning />
