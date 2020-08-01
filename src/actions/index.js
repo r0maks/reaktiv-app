@@ -13,14 +13,18 @@ export const createNewRoom = (name, code) => ({
 })
 
 export const addRoom = (name, code) => async dispatch => {
-  roomsRef.push().set({ name, code });
+  roomsRef.push().set({
+    name,
+    code,
+    created: Date.now()
+  });
 };
 
 export const joinRoom = () => ({
   type: 'JOIN_ROOM',
 })
 export const fetchRooms = () => async dispatch => {
-  roomsRef.on('value', snapshot => {
+  roomsRef.orderByChild('created').on('value', snapshot => {
     dispatch({
       type: 'FETCH_ROOMS',
       payload: Object.values(snapshot.val())
