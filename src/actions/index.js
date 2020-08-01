@@ -1,3 +1,5 @@
+import { roomsRef } from '../firebase'
+
 export const showNewRoom = () => ({
   type: 'SHOW_NEW_ROOM_CREATE',
 })
@@ -9,7 +11,20 @@ export const createNewRoom = (name, code) => ({
   name,
   code
 })
+
+export const addRoom = (name, code) => async dispatch => {
+  roomsRef.push().set({ name, code });
+};
+
 export const joinRoom = () => ({
   type: 'JOIN_ROOM',
 })
+export const fetchRooms = () => async dispatch => {
+  roomsRef.on('value', snapshot => {
+    dispatch({
+      type: 'FETCH_ROOMS',
+      payload: Object.values(snapshot.val())
+    });
+  });
+};
 

@@ -27,6 +27,11 @@ const planning = (state = initialState, action) => {
         ...state,
         mode: 'home',
       }
+    case 'FETCH_ROOMS':
+      return {
+        ...state,
+        rooms: action.payload,
+      }
     default:
       return initialState;
   }
