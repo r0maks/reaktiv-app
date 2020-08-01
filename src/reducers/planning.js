@@ -1,6 +1,7 @@
-const modes = {
+export const modes = {
   HOME: 'home',
   CREATE: 'create',
+  JOINING: 'joining',
   POINTING: 'pointing',
 }
 
@@ -32,6 +33,11 @@ const planning = (state = initialState, action) => {
       return {
         ...state,
         rooms: action.payload,
+      }
+    case 'TRY_JOIN_ROOM':
+      return {
+        ...state,
+        mode: modes.JOINING
       }
     case 'JOIN_ROOM':
       return {

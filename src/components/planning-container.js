@@ -1,15 +1,17 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import Controls from './controls'
 import Create from './create'
 import Pointing from './pointing'
+import Joining from './joining'
 import { fetchRooms } from '../actions';
+import { modes } from '../reducers/planning'
 
 const Planning = ({ mode, dispatch }) => {
 
     useEffect(() => {
         dispatch(fetchRooms())
-      });
+    })
 
     return (
         <div className="main-container">
@@ -26,13 +28,15 @@ const mapStateToProps = ({ planning }) => {
 
 const getComponentForMode = (mode) => {
     switch (mode) {
-        case 'pointing':
-            return <Pointing />;
-        case 'create':
-            return <Create />;
-        case 'home':
+        case modes.POINTING:
+            return <Pointing />
+        case modes.CREATE:
+            return <Create />
+        case modes.JOINING:
+            return <Joining />
+        case modes.HOME:
         default:
-            return <Controls />;
+            return <Controls />
     }
 }
 

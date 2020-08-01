@@ -7,11 +7,11 @@ const Create = ({ dispatch, state }) => {
 
     const [
         name, setName,
-    ] = useState();
+    ] = useState()
 
     const [
         code, setCode,
-    ] = useState();
+    ] = useState()
 
     return (
         <div className="create-controls">

@@ -42,4 +42,9 @@ export const joinRoom = (roomId, roomName) => ({
   roomId,
   roomName
 })
+export const tryJoinRoom = (roomId, roomName) => ({
+  type: 'TRY_JOIN_ROOM',
+  roomId,
+  roomName
+})
 
