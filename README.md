@@ -1,22 +1,7 @@
---- App Ideas ---
+-- add src/config.js for firebase creds
 
-- customizeable pointing tool
+-- npm install
 
-- rooms -> generated from uniqued guids
-- pointer users
-- watchers
-- admins
+-- npm start
 
-States 
-- Create new room page
-    1. Name it
-    2. Settings for pointing
-    3. set access code
-
-
-
-Features
-- Combos when pointers all choose the same number
-- 
-
-
+-- localhost:3000
