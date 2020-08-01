@@ -5,7 +5,7 @@ import Planning from './components/planning-container'
 const App = () => {
 
   useEffect(() => {
-
+    prepareUser();
   });
 
   return (
@@ -13,6 +13,15 @@ const App = () => {
       <Planning />
     </div>
   );
+}
+
+const prepareUser = () => {
+  const key = 'sp-userid';
+  let userId = localStorage.getItem(key);
+
+  if (!userId) {
+    localStorage.setItem(key, Date.now());
+  }
 }
 
 export default App;

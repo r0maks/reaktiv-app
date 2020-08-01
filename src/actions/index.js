@@ -3,6 +3,10 @@ import { roomsRef } from '../firebase'
 export const showNewRoom = () => ({
   type: 'SHOW_NEW_ROOM_CREATE',
 })
+export const searchRooms = (searchTerms) => ({
+  type: 'SEARCH_ROOMS',
+  searchTerms
+})
 export const goBackHome = () => ({
   type: 'GO_BACK_HOME',
 })

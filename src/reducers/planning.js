@@ -1,6 +1,7 @@
 const initialState = {
   mode: 'home',
-  rooms: []
+  rooms: [],
+  searchTerms: '',
 };
 
 const planning = (state = initialState, action) => {
@@ -26,6 +27,12 @@ const planning = (state = initialState, action) => {
       return {
         ...state,
         mode: 'home',
+        searchTerms: '',
+      }
+    case 'SEARCH_ROOMS':
+      return {
+        ...state,
+        searchTerms: action.searchTerms,
       }
     case 'FETCH_ROOMS':
       return {

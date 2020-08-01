@@ -30,6 +30,10 @@
     grid-template-rows: auto auto auto;
     grid-row-gap: 10px;
 }
+.room-list-container {
+    display: grid;
+    grid-row-gap: 5px;
+}
 .room-list {
     display: grid;
     grid-auto-flow: row;
@@ -47,6 +51,9 @@
 }
 .room-list .room span {
     font-size: 80%;
+}
+.no-results-message {
+    text-align: center;
 }
 .grid-2 {
     display: grid;
