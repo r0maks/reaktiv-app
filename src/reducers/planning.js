@@ -1,14 +1,27 @@
-export const modes = {
+export const states = {
   HOME: 'home',
   CREATE: 'create',
   JOINING: 'joining',
   POINTING: 'pointing',
 }
 
+export const pointingModes = {
+  SETUP: 'setup',
+  POINTING: 'pointing'
+}
+
 const initialState = {
-  mode: modes.HOME,
+  state: states.HOME,
   rooms: [],
   searchTerms: '',
+  roomId: null,
+  roomName: null,
+  roomCode: null,
+  userName: null,
+  isHost: false,
+  users: [],
+  pointingMode: pointingModes.SETUP,
+  pointingTopic: '',
 }
 
 const planning = (state = initialState, action) => {
@@ -16,12 +29,12 @@ const planning = (state = initialState, action) => {
     case 'SHOW_NEW_ROOM_CREATE':
       return {
         ...state,
-        mode: modes.CREATE,
+        state: states.CREATE,
       }
     case 'GO_BACK_HOME':
       return {
         ...state,
-        mode: modes.HOME,
+        state: states.HOME,
         searchTerms: '',
       }
     case 'SEARCH_ROOMS':
@@ -37,15 +50,27 @@ const planning = (state = initialState, action) => {
     case 'TRY_JOIN_ROOM':
       return {
         ...state,
-        mode: modes.JOINING
+        state: states.JOINING,
+        roomId: action.roomId,
+        roomName: action.roomName,
+        roomCode: action.roomCode
       }
     case 'JOIN_ROOM':
+
+      if (action.code === state.roomCode) {
+        return {
+          ...state,
+          state: states.POINTING,
+          isHost: action.isHost,
+          userName: action.name
+        }
+      }
+
       return {
         ...state,
-        mode: modes.POINTING
       }
     default:
-      return initialState;
+      return state;
   }
 }
 

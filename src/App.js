@@ -6,7 +6,7 @@ const App = () => {
 
   useEffect(() => {
     prepareUser();
-  });
+  }, []);
 
   return (
     <div className="app-container">

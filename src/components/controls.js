@@ -31,7 +31,7 @@ const renderRoomsList = (rooms, searchTerms, dispatch) => {
                                 <strong>{room.name}</strong><br />
                                 <span>{new Date(room.created).toDateString()} {new Date(room.created).toLocaleTimeString()}</span>
                             </p>
-                            <button onClick={() => dispatch(tryJoinRoom(room.id, room.name))} className="btn">Join</button>
+                            <button onClick={() => dispatch(tryJoinRoom(room.id, room.name, room.code))} className="btn">Join</button>
                         </div>
                     ))}
                 </div>

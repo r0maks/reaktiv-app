@@ -1,19 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { addUserAndSubscribe } from '../actions';
 
-const Pointing = ({ dispatch, state, roomName }) => {
+const Pointing = ({ dispatch, state, roomName, userName, isHost, roomId }) => {
+
+    useEffect(() => {
+        dispatch(addUserAndSubscribe(roomId, userName, isHost))
+      }, []);
 
     return (
         <div className="pointing-room">
-        {roomName}
+            {roomName}
         </div>
     )
 }
 
-const mapStateToProps = ({ pointing }) => {
+const mapStateToProps = ({ planning }) => {
     return {
-        mode: pointing.pointingMode,
-        roomName: pointing.roomName
+        mode: planning.pointingMode,
+        roomName: planning.roomName,
+        roomId: planning.roomId,
+        userName: planning.userName,
+        isHost: planning.isHost
     }
 }
 

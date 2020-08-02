@@ -5,36 +5,36 @@ import Create from './create'
 import Pointing from './pointing'
 import Joining from './joining'
 import { fetchRooms } from '../actions';
-import { modes } from '../reducers/planning'
+import { states } from '../reducers/planning'
 
-const Planning = ({ mode, dispatch }) => {
+const Planning = ({ state, dispatch }) => {
 
     useEffect(() => {
         dispatch(fetchRooms())
-    })
+    }, [])
 
     return (
         <div className="main-container">
-            {getComponentForMode(mode)}
+            {getComponentForMode(state)}
         </div>
     )
 }
 
 const mapStateToProps = ({ planning }) => {
     return {
-        mode: planning.mode
+        state: planning.state
     }
 }
 
-const getComponentForMode = (mode) => {
-    switch (mode) {
-        case modes.POINTING:
+const getComponentForMode = (state) => {
+    switch (state) {
+        case states.POINTING:
             return <Pointing />
-        case modes.CREATE:
+        case states.CREATE:
             return <Create />
-        case modes.JOINING:
+        case states.JOINING:
             return <Joining />
-        case modes.HOME:
+        case states.HOME:
         default:
             return <Controls />
     }
