@@ -2,10 +2,12 @@
     display: grid;
     grid-row-gap: 10px;
 }
+
 .main-controls {
     display: grid;
     grid-template-columns: 50% 50%;
 }
+
 .main-controls button {
     height: 100px;
     width: 100%;
@@ -13,10 +15,12 @@
     color: white;
     font-size: 20px;
 }
+
 .main-controls button:hover {
     background: #2196f3;
     color: white;
 }
+
 .main-controls .title-message {
     display: flex;
     justify-content: center;
@@ -25,16 +29,20 @@
     font-size: 20px;
     flex-direction: column;
 }
-.create-controls form, .joining-controls form {
+
+.create-controls form,
+.joining-controls form {
     display: grid;
     grid-template-rows: 1fr;
     grid-row-gap: 10px;
     margin-bottom: 5px;
 }
+
 .room-list-container {
     display: grid;
     grid-row-gap: 5px;
 }
+
 .room-list {
     display: grid;
     grid-auto-flow: row;
@@ -42,6 +50,7 @@
     max-height: 300px;
     overflow-y: auto;
 }
+
 .room-list .room {
     border-radius: 2px;
     padding-left: 5px;
@@ -50,14 +59,45 @@
     justify-content: space-between;
     padding: 5px;
 }
+
 .room-list .room span {
     font-size: 80%;
 }
+
 .no-results-message {
     text-align: center;
 }
+
 .grid-2 {
     display: grid;
     grid-template-columns: auto auto;
     grid-column-gap: 10px;
+}
+
+.pointing-room {
+    display: grid;
+    grid-row-gap: 10px;
+}
+
+.pointing-room .room-controls {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.pointing-room .cards {
+    display: flex;
+    border: 1px solid #263238;
+    min-height: 50px;
+    border-radius: 2px;
+    padding: 5px;
+}
+.pointing-room .cards .option {
+    padding: 10px;
+    background: black;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
 }

@@ -63,7 +63,23 @@ export const addUserAndSubscribe = (roomId, userName, isHost) => async dispatch 
   }
   databaseRef.child('rooms/' + roomId + '/users/' + userId).set(user)
   databaseRef.child('rooms/' + roomId).on('value', snapshot => {
-    dispatch(roomUpdated(snapshot.val()))
+    let room = snapshot.val()
+    room = {
+      ... room,
+      users: dictToArray(room.users)
+    }
+    console.log(room)
+    dispatch(roomUpdated(room))
   });
+}
+
+const dictToArray = (dict) => {
+  return Object.keys(dict).map(id => {
+    const record = dict[id]
+    return {
+      ...record,
+      id
+    }
+  })
 }
 
