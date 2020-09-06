@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { goBackHome, joinRoom } from '../actions';
 
-const Joining = ({ dispatch, state, roomName }) => {
+const Joining = ({ dispatch, state, roomName, error }) => {
 
     const [
         name, setName,
@@ -18,6 +18,7 @@ const Joining = ({ dispatch, state, roomName }) => {
 
     return (
         <div className="joining-controls">
+            {renderErrorAlert(error)}
             <form>
                 <span>Joining room: <strong>{roomName}</strong></span>
                 <input type="text" onChange={e => setName(e.target.value)} placeholder="Your Name" />
@@ -29,7 +30,7 @@ const Joining = ({ dispatch, state, roomName }) => {
             </form>
             <div className="grid-2">
                 <button className="btn" onClick={() => dispatch(goBackHome())}>Cancel</button>
-                <button disabled={!(name && code) ? true : false} onClick={() => dispatch(joinRoom(name, code,!!host, dispatch))} className="btn">Join</button>
+                <button disabled={!(name && code) ? true : false} onClick={() => dispatch(joinRoom(name, code, !!host))} className="btn">Join</button>
             </div>
         </div>
     )
@@ -37,8 +38,21 @@ const Joining = ({ dispatch, state, roomName }) => {
 
 const mapStateToProps = ({ planning }) => {
     return {
-        roomName: planning.roomName
+        roomName: planning.roomName,
+        error: planning.joiningError
     }
+}
+
+const renderErrorAlert = (error) => {
+    if (error) {
+        return (
+            <div className="error-banner">
+                {error}
+            </div>
+        )
+    }
+
+    return null
 }
 
 export default connect(mapStateToProps)(Joining)

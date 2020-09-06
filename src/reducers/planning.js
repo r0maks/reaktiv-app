@@ -5,7 +5,7 @@ export const states = {
   POINTING: 'pointing',
 }
 
-export const pointingModes = {
+export const roomStates = {
   SETUP: 'setup',
   POINTING: 'pointing'
 }
@@ -17,11 +17,12 @@ const initialState = {
   roomId: null,
   roomName: null,
   roomCode: null,
+  currentRoom: null,
   userName: null,
   isHost: false,
-  users: [],
-  pointingMode: pointingModes.SETUP,
+  pointingMode: roomStates.SETUP,
   pointingTopic: '',
+  joiningError: null,
 }
 
 const planning = (state = initialState, action) => {
@@ -36,6 +37,11 @@ const planning = (state = initialState, action) => {
         ...state,
         state: states.HOME,
         searchTerms: '',
+        joiningError: null,
+        currentRoom: null,
+        roomId: null,
+        roomName: null,
+        roomCode: null,
       }
     case 'SEARCH_ROOMS':
       return {
@@ -46,6 +52,11 @@ const planning = (state = initialState, action) => {
       return {
         ...state,
         rooms: action.payload,
+      }
+    case 'ROOM_UPDATED':
+      return {
+        ...state,
+        currentRoom: action.room
       }
     case 'TRY_JOIN_ROOM':
       return {
@@ -58,16 +69,19 @@ const planning = (state = initialState, action) => {
     case 'JOIN_ROOM':
 
       if (action.code === state.roomCode) {
+
         return {
           ...state,
           state: states.POINTING,
           isHost: action.isHost,
-          userName: action.name
+          userName: action.name,
+          joiningError: null,
         }
       }
 
       return {
         ...state,
+        joiningError: 'Incorrect access code'
       }
     default:
       return state;

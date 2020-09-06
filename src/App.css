@@ -30,6 +30,12 @@
     flex-direction: column;
 }
 
+.container {
+    border: 1px solid #263238;
+    border-radius: 2px;
+    padding: 5px;
+}
+
 .create-controls form,
 .joining-controls form {
     display: grid;
@@ -37,7 +43,13 @@
     grid-row-gap: 10px;
     margin-bottom: 5px;
 }
-
+.joining-controls .error-banner {
+    text-align: center;
+    padding: 10px;
+    background: #ffe74cff;
+    margin-bottom: 10px;
+    border-radius: 2px;
+}
 .room-list-container {
     display: grid;
     grid-row-gap: 5px;
@@ -79,25 +91,37 @@
     grid-row-gap: 10px;
 }
 
+.pointing-room .room-content {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-column-gap: 5px;
+    grid-template-columns: auto 20%;
+}
+
 .pointing-room .room-controls {
     display: flex;
     justify-content: flex-end;
 }
 
-.pointing-room .cards {
+.pointing-room .my-cards {
     display: flex;
-    border: 1px solid #263238;
     min-height: 50px;
-    border-radius: 2px;
-    padding: 5px;
+    grid-column-gap: 5px;
 }
-.pointing-room .cards .option {
-    padding: 10px;
-    background: black;
+.pointing-room .my-cards .option {
+    background: #424b54ff;
     border-radius: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     font-size: 20px;
+    height: 50px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.pointing-room .my-cards .option:hover {
+    transition: opacity .1s ease-in-out;
+    opacity: 0.5;
 }
