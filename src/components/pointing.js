@@ -14,12 +14,8 @@ const Pointing = ({ dispatch, state, roomName, userName, isHost, roomId, users, 
                 Welcome <strong>{userName}</strong>, you are in room: <strong>{roomName}</strong> (Code: {roomCode})
             </div>
             <div className="room-content">
-                <div className="left-side">
-                    {renderMyCards()}
-                </div>
-                <div className="right-side">
-                    {renderRoomUsers(room)}
-                </div>
+                {renderPointingEvent()}
+                {renderMyCards()}
             </div>
             <div className="room-controls">
                 <button className="btn" onClick={() => dispatch(goBackHome())}>Leave Room</button>
@@ -39,6 +35,20 @@ const mapStateToProps = ({ planning }) => {
         room: planning.currentRoom,
     }
 }
+const renderHostControls = () => {
+    return (
+        <div className="container">
+            <span className="title"><strong>Currently pointing:</strong></span>
+        </div>
+    )
+}
+const renderPointingEvent = () => {
+    return (
+        <div className="container">
+            <span className="title"><strong>Currently pointing:</strong></span>
+        </div>
+    )
+}
 
 const renderMyCards = () => {
 
@@ -47,12 +57,15 @@ const renderMyCards = () => {
     ];
 
     return (
-        <div className="container my-cards">
-            {options.map(option => (
-                <div className="option" key={option}>
-                    {option}
-                </div>
-            ))}
+        <div className="container">
+            <span className="title"><strong>Your estimate:</strong></span>
+            <div className="my-cards">
+                {options.map(option => (
+                    <div className="option" key={option}>
+                        {option}
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
@@ -65,9 +78,10 @@ const renderRoomUsers = (room) => {
 
     return (
         <div className="container room-users">
+            <span className="title"><strong>Users</strong></span>
             {room.users.map(user => (
                 <div className="user" key={user.id}>
-                    {user.userName}
+                    -&nbsp;{user.userName}
                 </div>
             ))}
         </div>

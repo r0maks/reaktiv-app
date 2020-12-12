@@ -25,7 +25,7 @@ const initialState = {
   joiningError: null,
 }
 
-const planning = (state = initialState, action) => {
+const planning = (state, action) => {
   switch (action.type) {
     case 'SHOW_NEW_ROOM_CREATE':
       return {
@@ -84,7 +84,7 @@ const planning = (state = initialState, action) => {
         joiningError: 'Incorrect access code'
       }
     default:
-      return state;
+      return state || initialState;
   }
 }
 
